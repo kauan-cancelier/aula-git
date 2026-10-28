@@ -74,13 +74,23 @@
 <div class="sub">Toque para jogar</div>
 
 <div id="menu">
-  <a class="game" href="memoria/"><span class="emoji">🧠</span><span class="nome">Memória</span></a>
-  <a class="game" href="velha/"><span class="emoji">❌</span><span class="nome">Jogo da Velha</span></a>
-  <a class="game" href="forca/"><span class="emoji">🪢</span><span class="nome">Forca</span></a>
-  <a class="game" href="roleta/"><span class="emoji">🎡</span><span class="nome">Roleta</span></a>
-  <a class="game" href="quiz/"><span class="emoji">⚡</span><span class="nome">Quiz Relâmpago</span></a>
-  <a class="game" href="caca-erros/"><span class="emoji">🐛</span><span class="nome">Caça-Erros</span></a>
+  <a class="game" href="memoria/" data-g="memoria"><span class="emoji">🧠</span><span class="nome">Memória</span></a>
+  <a class="game" href="velha/" data-g="velha"><span class="emoji">❌</span><span class="nome">Jogo da Velha</span></a>
+  <a class="game" href="forca/" data-g="forca"><span class="emoji">🪢</span><span class="nome">Forca</span></a>
+  <a class="game" href="roleta/" data-g="roleta"><span class="emoji">🎡</span><span class="nome">Roleta</span></a>
+  <a class="game" href="quiz/" data-g="quiz"><span class="emoji">⚡</span><span class="nome">Quiz Relâmpago</span></a>
+  <a class="game" href="caca-erros/" data-g="caca-erros"><span class="emoji">🐛</span><span class="nome">Caça-Erros</span></a>
 </div>
+
+<script>
+// Quando aberto via htmlpreview.github.io, os links precisam apontar de volta pro proxy
+if (location.hostname === 'htmlpreview.github.io') {
+  const base = location.search.split('?')[1].replace(/index\.html$/, '');
+  document.querySelectorAll('.game').forEach(a => {
+    a.href = `https://htmlpreview.github.io/?${base}${a.dataset.g}/index.html`;
+  });
+}
+</script>
 
 </body>
 </html>
